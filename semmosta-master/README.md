@@ -1,6 +1,6 @@
 Tämä on Node.js-serveripuolen koodi, joka käyttää Express.js-kehyksen HTTP-pyyntöjen käsittelyyn. Koodin tarkoituksena on palvella tietoja CSV-tiedostosta API:na.
 
-Koodi aluksi tuo tarvittavat riippuvuudet - express, csv-parser, ja fs - käyttäen require -funktiota.
+Koodi aluksi tuo tarvittavat riippuvuudet - express, csv-parser, ja fs ja cors - käyttäen require -funktiota.
 
 Sitten luodaan express-sovelluksen instanssi, joka tässä tapauksessa kuuntelee porttia 5500.
 
