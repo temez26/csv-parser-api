@@ -27,7 +27,6 @@ function getData() {
 
 getData();
 
-
 document.getElementById("file-input").addEventListener("change", function (e) {
   const file = e.target.files[0];
   const formData = new FormData();
