@@ -1,4 +1,4 @@
-Here is the translation in English: This is Node.js server-side code that uses the Express.js framework for handling HTTP requests. The purpose of the code is to serve data from a CSV file as an API.
+This is Node.js server-side code that uses the Express.js framework for handling HTTP requests. The purpose of the code is to serve data from a CSV file as an API.
 
 The code first imports the required dependencies - express, csv-parser, fs and cors - using the require function.
 
