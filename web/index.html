@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +9,8 @@
             width: 100%;
         }
 
-        th, td {
+        th,
+        td {
             text-align: left;
             padding: 8px;
             border: 1px solid #ddd;
@@ -22,51 +24,9 @@
 <body>
     <input type="file" id="file-input" accept=".csv" />
     <table id="csvTable"></table>
-    <table id="csvTable">
-    </table>
-   
-    <script>
-        const fileInput = document.querySelector('#file-input');
-        fileInput.addEventListener('change', async (event) => {
-            const file = event.target.files[0];
-            const formData = new FormData();
-            formData.append('file', file);
-            const response = await fetch('/upload', {
-                method: 'POST',
-                body: formData,
-            });
-            const data = await response.json();
-            displayData(data);
-        });
 
-        function displayData(data) {
-            const table = document.getElementById('csvTable');
-            table.innerHTML = '';
-            const headers = Object.keys(data[0]);
-            const headerRow = document.createElement('tr');
-            headers.forEach(headerText => {
-                const header = document.createElement('th');
-                header.appendChild(document.createTextNode(headerText));
-                headerRow.appendChild(header);
-            });
-            table.appendChild(headerRow);
-            data.forEach(rowData => {
-                const row = document.createElement('tr');
-                headers.forEach(headerText => {
-                    const cell = document.createElement('td');
-                    cell.appendChild(document.createTextNode(rowData[headerText]));
-                    row.appendChild(cell);
-                });
-                table.appendChild(row);
-            });
-        }
+    <script src="api.js">
+       
     </script>
 </body>
-
 </html>
-
-
-
-
-
-
