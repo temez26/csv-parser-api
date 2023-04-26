@@ -3,7 +3,26 @@
 <html>
 <head>
     <title>CSV Table</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+        html {
+            background-color: grey;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: blue;
+        }
+       
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            
+        }
+
         table {
             border-collapse: collapse;
             width: 100%;
@@ -19,14 +38,38 @@
         th {
             background-color: #f2f2f2;
         }
+
+        .file-input-container {
+            text-align: center;
+            margin: 16px 0;
+            
+        }
+
+            .file-input-container input[type="file"] {
+                font-size: 16px;
+                padding: 8px 16px;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        button:hover {
+            background-color: #4CAF50;
+            color: white;
+        }
     </style>
 </head>
-<body>
-    <input type="file" id="file-input" accept=".csv" />
-    <table id="csvTable"></table>
+<body class="bg-light">
+    <div class="container">
+        <input type="file" id="file-input" accept=".csv" />
+        <table id="csvTable" class="table"></table>
+    </div>
 
-    <script src="api.js">
-       
-    </script>
+    <script src="api.js"></script>
 </body>
 </html>
