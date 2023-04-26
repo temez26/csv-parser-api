@@ -5,27 +5,28 @@
     <title>CSV Table</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
         html {
-            background-color: grey;
+            background-color: #F2F2F2;
         }
+
         body {
-            font-family: 'Open Sans', sans-serif;
+            font-family: 'Montserrat', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: blue;
+            background-color: #fff;
         }
-       
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
-            
+            margin-top: 100px;
         }
 
         table {
             border-collapse: collapse;
             width: 100%;
+            margin-top: 50px;
         }
 
         th,
@@ -36,13 +37,17 @@
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #FF6B6B;
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: #F2F2F2;
         }
 
         .file-input-container {
             text-align: center;
             margin: 16px 0;
-            
         }
 
             .file-input-container input[type="file"] {
@@ -51,25 +56,67 @@
                 border: 1px solid #ddd;
                 border-radius: 4px;
                 cursor: pointer;
+                color: #555;
+                background-color: #fff;
+                transition: all 0.2s ease-in-out;
+            }
+
+                .file-input-container input[type="file"]:hover {
+                    background-color: #FF6B6B;
+                    color: #fff;
+                    border-color: #FF6B6B;
+                }
+
+        button {
+            font-size: 16px;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            color: #fff;
+            background-color: #FF6B6B;
+            transition: all 0.2s ease-in-out;
+        }
+
+            button:hover {
+                background-color: #F95757;
             }
 
         img {
             max-width: 100%;
             height: auto;
         }
-
-        button:hover {
-            background-color: #4CAF50;
-            color: white;
-        }
     </style>
 </head>
 <body class="bg-light">
-    <div class="container">
-        <input type="file" id="file-input" accept=".csv" />
-        <table id="csvTable" class="table"></table>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">CSV Table</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 1</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 2</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link 3</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container" >
+        <input type="file" id="file-input" accept=".csv" style="margin-bottom: 20px;" />
+        <table id="csvTable" class="table" ></table>
     </div>
 
     <script src="api.js"></script>
 </body>
+
+
+
 </html>
+
