@@ -1,13 +1,24 @@
-This is Node.js server-side code that uses the Express.js framework for handling HTTP requests. The purpose of the code is to serve data from a CSV file as an API.
 
-The code first imports the required dependencies - express, csv-parser, fs and cors - using the require function.
+# CSV Uploader
 
-Then an instance of an express application is created, which in this case listens on port 5500.
+This is a simple Express app that allows users to upload CSV files and view their contents.
 
-The code also sets CORS headers to allow cross-origin requests from a specific origin, in this case http://127.0.0.1:5500.
+## Installation
 
-Next, the code defines a route that handles GET requests to the server's root directory using the app.get() method. This route reads data from a CSV file, parses it with the csv-parser library and sends it back as a JSON response.
+1. Install dependencies by running `npm install`.
+2. Set the `PORT` and `UPLOAD_DEST` environment variables if desired.
 
-The code also defines three error-handling middleware functions using the app.use() method. The first function handles when the requested resource is not found. The second function handles CSV parsing errors such as situations where the number of fields on a line is incorrect. The third function handles all other errors, logs them to the console and sends an appropriate error message.
+## Usage
 
-Finally, the server listens on the port using the app.listen() method and outputs a message to the console to show that everything is working.
+1. Start the server by running `npm run start`.
+2. Upload a CSV file by sending a `POST` request to the `/upload` endpoint with the file attached as form data under the key `file`.
+3. View the contents of the uploaded CSV file by sending a `GET` request to the `/` endpoint.
+
+## Dependencies
+
+- express
+- csv-parser
+- fs
+- cors
+- multer
+
