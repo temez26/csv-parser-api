@@ -1,4 +1,3 @@
-
 const express = require("express");
 const csv = require("csv-parser");
 const fs = require("fs");
@@ -29,7 +28,7 @@ app.post("/upload", upload.single("file"), async (req, res, next) => {
     // Handle file read errors
     readStream.on("error", (err) => {
       console.error(err);
-      next(err);
+      res.status(400).send('Error reading file');
     });
 
     // Parse CSV data and store in memory
@@ -40,7 +39,10 @@ app.post("/upload", upload.single("file"), async (req, res, next) => {
         csvData = results;
         res.send(results);
       })
-      .on("error", (err) => next(err));
+      .on("error", (err) => {
+        console.error(err);
+        res.status(400).send('Error parsing CSV data');
+      });
   } catch (err) {
     next(err);
   }
@@ -49,6 +51,12 @@ app.post("/upload", upload.single("file"), async (req, res, next) => {
 // GET route for retrieving parsed CSV data
 app.get("/", (req, res) => {
   res.json(csvData);
+});
+
+// Error-handling middleware function
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).send('Something broke!');
 });
 
 // Start server and listen on specified port
