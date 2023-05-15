@@ -1,6 +1,5 @@
 
-# CSV Uploader
-
+# CSV Parser
 This is a simple Express app that allows users to upload CSV files and view their contents.
 
 ## Installation
